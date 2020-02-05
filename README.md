@@ -37,8 +37,18 @@ Make sure you put the spacer between the two boards otherwise they won't connect
 
 ### ~
 
-Step 2 - Add the batteries
+## Step 2 - Add the batteries
 
 Make sure the switch on the Servo:Lite board is in the **OFF** position and then install the three batteries.
 
+### Step 3 - Test the lights
 
+Use a ``||variables:set strip to||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
+
+![setPixelArray](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/a-setNeopixel.png)
+
+### ~hint
+
+#### Look in the **Neopixel** section
+Although you are creating a variable you will find the block you need in the **Neopixel** section and not in the *Variables* section
+### ~
