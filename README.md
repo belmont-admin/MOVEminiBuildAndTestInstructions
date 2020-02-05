@@ -52,3 +52,13 @@ Use a ``||variables:set strip to||`` block to create a variable ``||variables:st
 #### Look in the **Neopixel** section
 Although you are creating a variable you will find the block you need in the **Neopixel** section and not in the *Variables* section
 ### ~
+
+Add a Neopixel ``||show colour||`` block to set the strip LEDs to red when button ``||A||`` is pressed
+
+![Red](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/b-setRed.png)
+
+Now add a Neopixel ``||clear||`` and ``||show||`` blocks to turn the LEDs off when button ``||B||`` is pressed.
+
+![Off](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/c-clearStrip.png)
+
+Download your code to the @boardname@, turn the switch on the Servo:Lite board to the **On** position and test that your LEDs work.
