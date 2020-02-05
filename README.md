@@ -1,30 +1,44 @@
-> Open this page at [https://belmont-admin.github.io/moveminibuildandtestinstructions/](https://belmont-admin.github.io/moveminibuildandtestinstructions/)
+# Assemble and test a MOVE:mini Mk1
 
-## Use this extension
+## Introduction @unplugged
 
-This repository can be added as an **extension** in MakeCode.
+In this session you will connect the core parts of the MOVE:mini robot buggy and test them.
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/belmont-admin/moveminibuildandtestinstructions** and import
+This is how the pins on the @boardname@ are used.
 
-## Edit this extension ![Build status badge](https://github.com/belmont-admin/moveminibuildandtestinstructions/workflows/MakeCode/badge.svg)
+![Pin Outs](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/0-PinOuts.png)
 
-To edit this repository in MakeCode.
+The ZIP LED is the set of 5 neopixels which are at the top of the servo board.
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/belmont-admin/moveminibuildandtestinstructions** and click import
+## Step 1 - Connect the @boardname@ and the :MOVE Servo:Lite board
 
-## Blocks preview
+Here are the parts you need:
 
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
+![Parts](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/1-Parts.png)
 
-![A rendered view of the blocks](https://github.com/belmont-admin/moveminibuildandtestinstructions/raw/master/.github/makecode/blocks.png)
+### ~hint
 
-#### Metadata (used for search, rendering)
+#### Remember to handle the boards carefully
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+Handle the boards by their edges. If you damage them they won't work and we don't have spares.
+
+### ~
+
+Use a small Phillips screwdriver to screw the five M3 machine
+screws through the micro:bit and spacer, into the nuts mounted on the
+PCB.
+
+![Boards connected](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/2-Boards.png)
+
+### ~hint
+
+#### Don't forget the spacer
+Make sure you put the spacer between the two boards otherwise they won't connect nicely.
+
+### ~
+
+Step 2 - Add the batteries
+
+Make sure the switch on the Servo:Lite board is in the **OFF** position and then install the three batteries.
+
+
