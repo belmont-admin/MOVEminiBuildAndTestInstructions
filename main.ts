@@ -1,9 +1,16 @@
-input.onButtonPressed(Button.B, function () {
+input.onButtonPressed(Button.A, function () {
+    pins.servoWritePin(AnalogPin.P0, 180)
+})
+let strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+basic.forever(function () {
+    strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+    strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Purple))
+    strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
+    strip.setPixelColor(4, neopixel.colors(NeoPixelColors.Orange))
+    strip.show()
+    basic.pause(2000)
     strip.clear()
     strip.show()
+    basic.pause(2000)
 })
-input.onButtonPressed(Button.A, function () {
-    strip.showColor(neopixel.colors(NeoPixelColors.Red))
-})
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)

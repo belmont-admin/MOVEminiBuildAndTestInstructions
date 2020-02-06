@@ -24,9 +24,7 @@ Handle the boards by their edges. If you damage them they won't work and we don'
 
 ### ~
 
-Use a small Phillips screwdriver to screw the five M3 machine
-screws through the micro:bit and spacer, into the nuts mounted on the
-PCB.
+Use a small Phillips screwdriver to screw the five M3 machine screws through the micro:bit and spacer, into the nuts mounted on the PCB.
 
 ![Boards connected](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/2-Boards.png)
 
@@ -41,7 +39,7 @@ Make sure you put the spacer between the two boards otherwise they won't connect
 
 Make sure the switch on the Servo:Lite board is in the **OFF** position and then install the three batteries.
 
-### Step 3 - Test the lights
+## Step 3 - Test the lights
 
 Use a ``||variables:set strip to||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
 
@@ -62,3 +60,66 @@ Now add a Neopixel ``||clear||`` and ``||show||`` blocks to turn the LEDs off wh
 ![Off](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/c-clearStrip.png)
 
 Download your code to the @boardname@, turn the switch on the Servo:Lite board to the **On** position and test that your LEDs work.
+
+## Step 4 - Connect the wheels to the servos
+
+For this step you need to push the wheels onto the servos so you can test them. You'll then need to connect the servos to the Servo:Lite board. Be careful and don't force anything too hard.
+
+![wheels](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/4-PartsWheels.png)
+
+Once the wheels are on the spindle of the servos you can connect them to the Servo:Lite board.
+
+### ~hint
+
+#### Connect the cable the right way round
+The 3-pin connector on the end of the wire from the servo can fit both ways onto the pins on the Servo:Lite board. You must connect the cable the correct way round which is with the brown wire nearest the neopixels at the top of the Servo:Lite board.
+
+![wheels connect](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/6-ServoConnecting.png)
+
+### ~
+
+Congratulations you should now have assembled the core parts of your robot buggy!
+
+![buggy assembled](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/7-FinalAssembled.png)
+
+## Step 5 - Testing the servo motors
+
+The motors are controlled using the ``||Pins:servo write pin PIN to NUMBER||`` block
+
+The number you write to the pin determines the speed of the motor.
+
+![speeds](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/5-SpeedControl.png)
+
+-
+* **180** means full speed clockwise
+* **0** means full speed antoclockwise
+* **90** means stop
+
+Change your code so that when you press button ``||A||`` both motors spin full speed clockwise
+
+Remember which pins control what.
+
+![Pin Outs](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/0-PinOuts.png)
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    pins.servoWritePin(AnalogPin.P1, 180)
+    pins.servoWritePin(AnalogPin.P2, 180)
+})
+```
+Now add code so that when you press the ``||B||`` button the motors stop.
+
+You will probably find that the motors do not stop completely. If this happens then the servos need to be **trimmed**. This means adjusting a small screw on the servo. Ask Alice or Elise to give you a small screwdriver and help you with this
+
+Congratulations! You have now assembled and tested the key parts of your robot buggy.
+
+## Step 6 - Try some other things
+
+Add code so that when you press the ``||A+B||`` buttons the wheels spin the other way.
+
+See if you can change the the colour of each neopixel separately. 
+
+![neopixel address](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/3-PixelArrayAddressing.png)
+
+![leds](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/d-leds.png)
+
