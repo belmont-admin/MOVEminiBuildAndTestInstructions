@@ -119,7 +119,7 @@ The number you write to the pin determines the speed of the motor.
 * **0** means full speed clockwise
 * **90** means stop
 
-Change your code so that when you press button ``||A||`` both motors spin full speed clockwise
+Change your code so that when you press button ``||A||`` both motors spin full speed anticlockwise
 
 Remember which pins control what.
 
