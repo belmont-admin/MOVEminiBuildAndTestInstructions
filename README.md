@@ -115,8 +115,8 @@ The number you write to the pin determines the speed of the motor.
 ![speeds](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/5-SpeedControl.png)
 
 -
-* **180** means full speed clockwise
-* **0** means full speed antoclockwise
+* **180** means full speed anticlockwise
+* **0** means full speed clockwise
 * **90** means stop
 
 Change your code so that when you press button ``||A||`` both motors spin full speed clockwise
