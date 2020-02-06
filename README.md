@@ -1,3 +1,7 @@
+```package
+neopixel=github:microsoft/pxt-neopixel#v0.6.12
+```
+
 # Assemble and test a MOVE:mini Mk1
 
 ## Introduction @unplugged
@@ -41,9 +45,12 @@ Make sure the switch on the Servo:Lite board is in the **OFF** position and then
 
 ## Step 3 - Test the lights
 
-Use a ``||variables:set strip to||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
+Use a ``||variables:set strip to||`` ``||neopixel:Nexopixel at Pin||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
 
-![setPixelArray](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/a-setNeopixel.png)
+```blocks
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+```
 
 ### ~hint
 
@@ -51,13 +58,30 @@ Use a ``||variables:set strip to||`` block to create a variable ``||variables:st
 Although you are creating a variable you will find the block you need in the **Neopixel** section and not in the *Variables* section
 ### ~
 
-Add a Neopixel ``||show colour||`` block to set the strip LEDs to red when button ``||A||`` is pressed
+Add a Neopixel ``||neopixel:show colour||`` block to set the strip LEDs to red when button ``||A||`` is pressed
 
-![Red](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/b-setRed.png)
+```blocks
+input.onButtonPressed(Button.A, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+})
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+```
 
-Now add a Neopixel ``||clear||`` and ``||show||`` blocks to turn the LEDs off when button ``||B||`` is pressed.
+Now add a Neopixel ``||neopixel:clear||`` and ``||neopixel:show||`` blocks to turn the LEDs off when button ``||B||`` is pressed.
 
-![Off](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/c-clearStrip.png)
+```blocks
+input.onButtonPressed(Button.A, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+})
+input.onButtonPressed(Button.B, function () {
+    strip.clear()
+    strip.show()
+})
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+
+```
 
 Download your code to the @boardname@, turn the switch on the Servo:Lite board to the **On** position and test that your LEDs work.
 
@@ -117,9 +141,31 @@ Congratulations! You have now assembled and tested the key parts of your robot b
 
 Add code so that when you press the ``||A+B||`` buttons the wheels spin the other way.
 
-See if you can change the the colour of each neopixel separately. 
+See if you can change the the colour of each neopixel separately. This picture shows you the number of each neopixel that you will need to use:
 
-![neopixel address](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/3-PixelArrayAddressing.png)
+![leds](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/3-PixelArrayAddressing.png)
 
-![leds](https://github.com/belmont-admin/MOVEminiBuildAndTestInstructions/raw/master/docs/images/d-leds.png)
+### ~hint
+
+#### Note the numbering
+The five neopixels are number 0,1,2,3 and 4. It's not unusual in computing for numbering to start at 0 rather than 1.
+
+### ~
+
+```blocks
+let strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+basic.forever(function () {
+    strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+    strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Purple))
+    strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
+    strip.setPixelColor(4, neopixel.colors(NeoPixelColors.Orange))
+    strip.show()
+    basic.pause(2000)
+    strip.clear()
+    strip.show()
+    basic.pause(2000)
+})
+
+```
 
