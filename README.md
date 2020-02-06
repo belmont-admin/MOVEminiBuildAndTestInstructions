@@ -45,7 +45,7 @@ Make sure the switch on the Servo:Lite board is in the **OFF** position and then
 
 ## Step 3 - Test the lights
 
-Use a ``||variables:set strip to||`` ``||neopixel:Nexopixel at Pin||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
+Use a ``||variables:set strip to||`` ``||neopixel:Neopixel at pin (PIN) with (NUMBER) leds||`` block to create a variable ``||variables:strip||`` which tells the @boardname@ that you have have a strip of 5 neopixels connected to Pin 0.
 
 ```blocks
 let strip: neopixel.Strip = null
@@ -58,28 +58,23 @@ strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
 Although you are creating a variable you will find the block you need in the **Neopixel** section and not in the *Variables* section
 ### ~
 
-Add a Neopixel ``||neopixel:show colour||`` block to set the strip LEDs to red when button ``||A||`` is pressed
+Add a Neopixel ``||neopixel:show colour (COLOUR)||`` block to set the strip of LEDs to red when button ``||A||`` is pressed
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
+    let strip: neopixel.Strip = null
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
 })
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
 ```
 
-Now add a Neopixel ``||neopixel:clear||`` and ``||neopixel:show||`` blocks to turn the LEDs off when button ``||B||`` is pressed.
+Now add Neopixel ``||neopixel:clear||`` and ``||neopixel:show||`` blocks to turn the LEDs off when button ``||B||`` is pressed.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-    strip.showColor(neopixel.colors(NeoPixelColors.Red))
-})
 input.onButtonPressed(Button.B, function () {
+    let strip: neopixel.Strip = null
     strip.clear()
     strip.show()
 })
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
 
 ```
 
@@ -108,7 +103,7 @@ Congratulations you should now have assembled the core parts of your robot buggy
 
 ## Step 5 - Testing the servo motors
 
-The motors are controlled using the ``||Pins:servo write pin PIN to NUMBER||`` block
+The motors are controlled using the ``||Pins:servo write pin (PIN) to (NUMBER)||`` block
 
 The number you write to the pin determines the speed of the motor.
 
@@ -152,20 +147,23 @@ The five neopixels are number 0,1,2,3 and 4. It's not unusual in computing for n
 
 ### ~
 
+Here is some code which makes the neopixels all flash different colours:
+
 ```blocks
-let strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
 basic.forever(function () {
+    let strip: neopixel.Strip = null
     strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
     strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
     strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Purple))
     strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
     strip.setPixelColor(4, neopixel.colors(NeoPixelColors.Orange))
     strip.show()
-    basic.pause(2000)
+    basic.pause(500)
     strip.clear()
     strip.show()
-    basic.pause(2000)
+    basic.pause(500)
 })
 
 ```
+If you get the flashing to work then see if you can change your code to get the colours to rotate along the strip using the ``||neopixel:rotate pixels by (NUMBER)||`` block
 
