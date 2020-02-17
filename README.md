@@ -166,4 +166,4 @@ basic.forever(function () {
 
 ```
 If you get the flashing to work then see if you can change your code to get the colours to rotate along the strip using the ``||neopixel:rotate pixels by (NUMBER)||`` block
-
+ 
