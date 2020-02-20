@@ -152,6 +152,7 @@ Here is some code which makes the neopixels all flash different colours:
 ```blocks
 basic.forever(function () {
     let strip: neopixel.Strip = null
+    basic.pause(500)
     strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
     strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
     strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Purple))
@@ -161,7 +162,6 @@ basic.forever(function () {
     basic.pause(500)
     strip.clear()
     strip.show()
-    basic.pause(500)
 })
 
 ```
